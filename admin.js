@@ -18,6 +18,12 @@
         && window.config.admin.legacyKeyParam
         || "admin"
     ).trim() || "admin";
+    const EVENT_ID_PARAM = String(
+        window.config
+        && window.config.event
+        && window.config.event.eventIdParam
+        || "eventId"
+    ).trim() || "eventId";
     const BASE_URL = window.location.origin;
     const INCLUDE_INACTIVE_IN_BULK_COPY = false;
 
@@ -46,7 +52,7 @@
         const legacyKey = String(params.get(LEGACY_ADMIN_KEY_PARAM) || "").trim();
         return {
             adminKey: mainKey || legacyKey,
-            eventId: String(params.get("eventId") || "").trim()
+            eventId: String(params.get(EVENT_ID_PARAM) || "").trim()
         };
     }
 
@@ -62,7 +68,7 @@
             window.config
             && window.config.event
             && window.config.event.defaultEventId
-            || "misxv-ana-maria-2026"
+            || "bryan-jenifer-2026"
         ).trim();
 
         return queryEventId || defaultEventId;

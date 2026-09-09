@@ -208,10 +208,10 @@ a{
     z-index: 50;
     width: 48px;
     height: 48px;
-    border: 1px solid rgba(184,138,46,.46);
+    border: 1px solid var(--burgundy-base);
     border-radius: 999px;
-    background: rgba(59,5,10,.12);
-    color: var(--gold-2);
+    background: var(--burgundy-base);
+    color: #fff;
     box-shadow: 0 10px 24px rgba(29,29,29,.08);
     backdrop-filter: blur(5px);
     cursor: pointer;
@@ -963,7 +963,7 @@ a{
     border-radius: 12px;
     border: 1px solid rgba(0,0,0,.12);
     font-family: var(--text);
-    font-size: 14px;
+    font-size: 10px;
     cursor: pointer;
     transition: all .2s ease;
   }
@@ -1321,7 +1321,7 @@ a{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    background: var(--burgundy-gradient);
+    background: var(--burgundy-base);
     flex-direction: column;
   }
   .footer-brand{
@@ -1886,7 +1886,11 @@ section.is-visible .btn-outline:nth-of-type(2) {
 }
 .dress .palette-title{
   margin:0 0 14px;
-  color:var(--burgundy-base);
+  background:var(--gold-strong-gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
   font-family:var(--title);
   font-size:14px;
   font-weight:500;
@@ -1922,7 +1926,11 @@ section.is-visible .btn-outline:nth-of-type(2) {
   background:#9aa784;
 }
 .palette-label{
-  color:var(--burgundy-base);
+  background:var(--gold-strong-gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
   font-family:var(--text);
   font-size:14px;
 }
@@ -1980,9 +1988,47 @@ section.is-visible .btn-outline:nth-of-type(2) {
   border-bottom-color:rgba(59,5,10,.15);
 }
 
+@media (max-width:768px){
+  .dress p.section-copy,
+  .gifts p.section-copy,
+  .wedding-photos p.section-copy,
+  .wishes p.section-copy,
+  .rsvp p.section-copy,
+  .intro-last span,
+  .blessing-intro{
+    font-size:16px;
+  }
+}
+
+@media (max-width:360px){
+  .count-row{
+    gap:6px;
+  }
+  .flip{
+    width:calc((100vw - 58px) / 4);
+  }
+}
+
+.wish-form input:focus-visible,
+.wish-form textarea:focus-visible,
+.rsvp-inline select:focus-visible,
+.rsvp-inline button:focus-visible,
+.btn-venue:focus-visible,
+.btn-outline:focus-visible{
+  outline:2px solid var(--burgundy-base);
+  outline-offset:3px;
+}
+
 /* Accesibilidad */
   @media (prefers-reduced-motion: reduce){
     .btn-shimmer::after{ animation: none !important; }
     .music-bubble{ animation: none !important; }
     .transfer-modal{ animation: none !important; }
+    .fade-in-element,
+    .venue-item,
+    .flip .top-flip,
+    .flip .bottom-flip{
+      animation:none !important;
+      transition:none !important;
+    }
   }

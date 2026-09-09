@@ -1065,46 +1065,44 @@ async function seedEventData(arg1, arg2) {
   const eventId = resolveEventId(arg1);
   const options = arg2 && typeof arg2 === "object" ? arg2 : {};
   const force = Boolean(options.force);
+  const sourceInfo = resolveLocalGuestsSource(eventId);
+  const localGuests = normalizeLocalGuestsSource(sourceInfo.source);
+  const configPayload = buildEventConfigSeedPayload(window.config);
 
-  const sampleGuests = {
-    "1": { id: "1", nombre: "Carlos López", pases: 2, activo: true },
-    "2": { id: "2", nombre: "María Fernanda Ruiz", pases: 3, activo: true },
-    "3": { id: "3", nombre: "José Pérez", pases: 1, activo: true },
-    "4": { id: "4", nombre: "Andrea Castillo", pases: 2, activo: true },
-    "5": { id: "5", nombre: "Luis Morales", pases: 4, activo: true },
-    "6": { id: "6", nombre: "Sofía Ramírez", pases: 2, activo: true },
-    "7": { id: "7", nombre: "Diego Hernández", pases: 1, activo: true },
-    "8": { id: "8", nombre: "Valeria Gómez", pases: 3, activo: true },
-    "9": { id: "9", nombre: "Andrés Aguilar", pases: 2, activo: true },
-    "10": { id: "10", nombre: "Daniela Ortiz", pases: 1, activo: true }
-  };
-
-  const [rsvpSnapshot, wishesSnapshot] = await Promise.all([
+  const [configSnapshot, rsvpSnapshot, wishesSnapshot] = await Promise.all([
+    get(getEventConfigRef(eventId)),
     get(ref(db, getEventRsvpPath(eventId))),
     get(ref(db, getEventDeseosPath(eventId)))
   ]);
 
+  if (configPayload && (force || !configSnapshot.exists())) {
+    await set(getEventConfigRef(eventId), configPayload);
+  }
+
   if (force || !rsvpSnapshot.exists()) {
-    await set(ref(db, getEventRsvpPath(eventId)), {});
+    await set(ref(db, getEventRsvpPath(eventId) + "/_initialized"), true);
   }
 
   if (force || !wishesSnapshot.exists()) {
-    await set(ref(db, getEventDeseosPath(eventId)), {});
+    await set(ref(db, getEventDeseosPath(eventId) + "/_initialized"), true);
   }
 
   await Promise.all(
-    Object.entries(sampleGuests).map(function ([guestId, guest]) {
-      return updateInvitado(eventId, guestId, guest);
+    localGuests.map(function (guest) {
+      return updateInvitado(eventId, guest.id, guest);
     })
   );
 
   return {
     ok: true,
     eventId,
+    configInitialized: Boolean(configPayload && (force || !configSnapshot.exists())),
     rsvpInitialized: force || !rsvpSnapshot.exists(),
     wishesInitialized: force || !wishesSnapshot.exists(),
-    invitadosSeeded: Object.keys(sampleGuests).length,
-    guestIds: Object.keys(sampleGuests)
+    invitadosSeeded: localGuests.length,
+    guestIds: localGuests.map(function (guest) {
+      return String(guest.id);
+    })
   };
 }
 

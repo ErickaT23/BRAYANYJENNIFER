@@ -25,15 +25,14 @@ window.LocalGuestSeeds = {
 window.seedEventGuestsToFirebase = async function seedEventGuestsToFirebase() {
   const eventId = window.config?.event?.defaultEventId || "bryan-jenifer-2026";
   const rsvpDB = window.RSVPDatabase;
-  if (!rsvpDB?.migrateLocalGuestsToFirebase) {
+  if (!rsvpDB?.seedEventData) {
     console.warn("RSVPDatabase no está disponible. Revisa que database.js esté cargado.");
     return { ok: false, guests: 0 };
   }
 
-  await rsvpDB.seedEventConfigToFirebase?.(eventId, { force: true });
-  const result = await rsvpDB.migrateLocalGuestsToFirebase(eventId, { force: true });
-  console.log(`Invitados creados en Firebase: ${result.total || guests.length}`);
-  return { ok: true, guests: result.total || guests.length };
+  const result = await rsvpDB.seedEventData(eventId, { force: true });
+  console.log(`Evento creado en Firebase con ${result.invitadosSeeded || 0} invitados.`);
+  return { ok: true, guests: result.invitadosSeeded || 0, eventId };
 };
 
 // Helper: leer parámetros ?id=1

@@ -20,6 +20,7 @@ function setupResultModal() {
   const textEl = document.getElementById("rsvpResultText");
   const btnClose = document.getElementById("btnCloseRsvpResult");
   const btnOk = document.getElementById("btnOkRsvpResult");
+  let lastFocusedElement = null;
 
   const close = () => {
     if (!backdrop) return;
@@ -27,6 +28,7 @@ function setupResultModal() {
     setTimeout(() => {
       backdrop.style.display = "none";
       backdrop.setAttribute("aria-hidden", "true");
+      lastFocusedElement?.focus();
     }, 260);
   };
 
@@ -36,14 +38,19 @@ function setupResultModal() {
     backdrop.addEventListener("click", (e) => {
       if (e.target === backdrop) close();
     });
+    backdrop.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
   }
 
   return (text) => {
     if (!backdrop || !textEl) return;
+    lastFocusedElement = document.activeElement;
     textEl.textContent = text;
     backdrop.style.display = "flex";
     backdrop.setAttribute("aria-hidden", "false");
     requestAnimationFrame(() => backdrop.classList.add("is-open"));
+    btnOk?.focus();
   };
 }
 
@@ -87,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const setActive = (type) => {
     btnYes.classList.toggle("is-active", type === "yes");
     btnNo.classList.toggle("is-active", type === "no");
+    btnYes.setAttribute("aria-pressed", String(type === "yes"));
+    btnNo.setAttribute("aria-pressed", String(type === "no"));
   };
 
   const paintConfirmed = (state) => {
@@ -103,13 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
     btnConfirm.style.display = "none";
     guestsWrap.style.display = "none";
     if (inlineBlock) inlineBlock.style.display = "none";
-    intro.textContent = "Gracias por haber completado el formulario de asistencia";
+    intro.textContent = "Gracias por completar el formulario de asistencia.";
     msg.style.display = "block";
     msg.className = "rsvp-msg ok";
     msg.textContent =
       answer === "yes"
-        ? "Gracias por confirmar tu asistencia, te vemos pronto."
-        : "Lamentamos que no puedas acompañarnos, te extrañaremos.";
+        ? "Gracias por confirmar tu asistencia. Te vemos pronto."
+        : "Lamentamos que no puedas acompañarnos. Te extrañaremos.";
   };
 
   const savedRaw = localStorage.getItem(keyFor(guest.id));
@@ -154,20 +163,18 @@ document.addEventListener("DOMContentLoaded", () => {
       at: Date.now(),
       atLocal: new Date().toISOString(),
     };
-    localStorage.setItem(keyFor(guest.id), JSON.stringify(state));
-
     try {
       const rsvpDB = window.RSVPDatabase;
-      if (rsvpDB?.saveConfirmation) {
-        await rsvpDB.saveConfirmation(eventId, {
-          id: guest.id,
-          nombre: guest.name,
-          pasesAsignados: guest.passes,
-          respuesta: answer === "yes" ? "si" : "no",
-          cantidadConfirmada: answer === "yes" ? Number(selectGuests.value || 1) : 0,
-          fechaConfirmacion: Date.now(),
-        });
-      }
+      if (!rsvpDB?.saveConfirmation) throw new Error("RSVP_DATABASE_UNAVAILABLE");
+      await rsvpDB.saveConfirmation(eventId, {
+        id: guest.id,
+        nombre: guest.name,
+        pasesAsignados: guest.passes,
+        respuesta: answer === "yes" ? "si" : "no",
+        cantidadConfirmada: answer === "yes" ? Number(selectGuests.value || 1) : 0,
+        fechaConfirmacion: Date.now(),
+      });
+      localStorage.setItem(keyFor(guest.id), JSON.stringify(state));
     } catch (error) {
       console.error(error);
       btnConfirm.disabled = false;
@@ -175,14 +182,14 @@ document.addEventListener("DOMContentLoaded", () => {
       msg.className = "rsvp-msg error";
       msg.textContent = error?.code === "RSVP_ALREADY_CONFIRMED"
         ? "Esta invitación ya fue confirmada anteriormente."
-        : "Tu confirmación quedó guardada en este dispositivo. Revisa Firebase.";
+        : "No pudimos enviar tu confirmación. Verifica tu conexión e inténtalo de nuevo.";
       return;
     }
 
     const popupText =
       answer === "yes"
-        ? "Gracias por confirmar tu asistencia, te vemos pronto."
-        : "Lamentamos que no puedas acompañarnos, te extrañaremos.";
+        ? "Gracias por confirmar tu asistencia. Te vemos pronto."
+        : "Lamentamos que no puedas acompañarnos. Te extrañaremos.";
 
     showResult(popupText);
     paintConfirmed(state);

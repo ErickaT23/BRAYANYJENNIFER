@@ -32,10 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
   initFlipCountdown("2026-11-07T17:00:00-06:00");
 
   // 5) Foto separador rotativa (si existe el elemento)
-  initRotatingSep([
-    "images/FS2.jpeg",
-    "images/FS3.jpeg",
-  ]);
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    initRotatingSep([
+      "images/FS2.jpeg",
+      "images/FS3.jpeg",
+    ]);
+  }
 });
 
 function initWeddingPhotosQr() {

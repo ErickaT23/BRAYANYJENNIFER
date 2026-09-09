@@ -35,7 +35,7 @@
       <div class="guest-line" id="guestCardName">Nombre del invitado</div>
       <div class="guest-sub">Hemos reservado</div>
       <div class="guest-seats">
-        <span id="guestCardSeats">x</span> <span id="guestCardSeatsTxt">lugares</span> en su honor
+        <span id="guestCardSeats">x</span> <span id="guestCardSeatsTxt">lugares</span> en esta celebración
       </div>
     </div>
 
@@ -162,7 +162,7 @@
   <section class="venues fade-in-element" id="venues">
     <article class="venue-item venue-item-ceremony">
       <div class="event-icon">
-        <img src="images/CHURCH.png" alt="Ceremonia Religiosa">
+        <img src="images/CHURCH.png" alt="">
       </div>
       <p class="venue-title">Ceremonia</p>
       <p class="venue-place">Rectoría San Agustín, zona 1</p>
@@ -172,7 +172,7 @@
 
     <article class="venue-item">
       <div class="event-icon">
-        <img src="images/CHEERS.png" alt="Recepción">
+        <img src="images/CHEERS.png" alt="">
       </div>
       <p class="venue-title">Recepción</p>
       <p class="venue-place">Club Guatemala</p>
@@ -186,11 +186,11 @@
   <!-- ATTIRE -->
   <section class="dress fade-in-element" id="dress">
     <div class="event-icon">
-      <img src="images/DRESSCODE.png" alt="Attire">
+    <img src="images/DRESSCODE.png" alt="">
     </div>
     <h3 class="section-title">Dress Code</h3>
     <p class="venue-title">FORMAL / ELEGANTE</p>
-    <p class="dress-note section-copy">Agradecemos evitar el blanco y tonos similares, borgoña y verde salvia.</p>
+    <p class="dress-note section-copy">Agradecemos evitar los tonos blanco, borgoña y verde salvia, así como sus similares.</p>
     <div class="palette-block" aria-label="Paleta reservada">
       <p class="palette-title">Paleta reservada</p>
       <div class="palette-swatches">
@@ -215,14 +215,14 @@
 <section class="gifts fade-in-element" id="gifts">
 
   <div class="event-icon">
-    <img src="images/GIFT.png" alt="Mesa de regalos">
+    <img src="images/GIFT.png" alt="">
   </div>
 
   <h3 class="section-title">Mesa de Regalos</h3>
 
   <p class="gifts-strong section-copy">
     <span>Nuestro mejor regalo es compartir este momento contigo.</span>
-    <span>Si deseas hacernos un detalle, hemos preparado una lista en Cemaco para acompañarnos al comenzar nuestra nueva vida juntos.</span>
+    <span>Si deseas hacernos un detalle, hemos preparado una lista de regalos en Cemaco para acompañarnos al comenzar nuestra nueva vida juntos.</span>
   </p>
 
   <div class="gifts-buttons">
@@ -237,7 +237,7 @@
 
 <section class="wedding-photos fade-in-element" id="weddingPhotos">
   <div class="event-icon">
-    <img src="images/CAMERA.png" alt="Fotografías de la boda">
+    <img src="images/CAMERA.png" alt="">
   </div>
   <h3 class="section-title">¡Hagamos de los recuerdos una realidad!</h3>
   <p class="section-copy">
@@ -258,7 +258,7 @@
 
 <section class="wishes fade-in-element" id="wishesSection">
   <div class="event-icon">
-    <img src="images/BUENOSDESEOS.png" alt="Buenos Deseos">
+    <img src="images/BUENOSDESEOS.png" alt="">
   </div>
   <h3 class="section-title">Buenos Deseos</h3>
   <p class="wishes-strong section-copy">
@@ -293,12 +293,12 @@
   <!-- ================= RSVP SECTION ================= -->
 <section class="rsvp fade-in-element" id="rsvpSection">
   <div class="event-icon">
-    <img src="images/RSVP.png" alt="RSVP">
+    <img src="images/RSVP.png" alt="">
   </div>
   <h3 class="section-title">Confirma tu Asistencia</h3>
   <p class="rsvp-strong section-copy">
-    Para nosotros es muy importante que confirmes tu asistencia lo antes posible,
-    o bien indicarnos si no podrás acompañarnos.
+    Para nosotros es muy importante que confirmes tu asistencia lo antes posible
+    o que nos indiques si no podrás acompañarnos.
   </p>
 
   <div class="rsvp-inline" id="rsvpInline">
@@ -307,12 +307,12 @@
 
     <p class="rsvp-label rsvp-choice-label">¿Asistirás?</p>
     <div class="rsvp-actions">
-      <button id="btnRsvpSi" class="rsvp-btn rsvp-yes" type="button">Sí, es un gusto.</button>
-      <button id="btnRsvpNo" class="rsvp-btn rsvp-no" type="button">No, lamentablemente no podré.</button>
+      <button id="btnRsvpSi" class="rsvp-btn rsvp-yes" type="button" aria-pressed="false">Sí, con mucho gusto.</button>
+      <button id="btnRsvpNo" class="rsvp-btn rsvp-no" type="button" aria-pressed="false">No, lamentablemente no podré.</button>
     </div>
 
     <div id="rsvpGuestsWrap" class="rsvp-guests-wrap" style="display:none">
-      <label for="rsvpGuests" class="rsvp-label">Número de invitados</label>
+      <label for="rsvpGuests" class="rsvp-label">Total de personas que asistirán, incluyéndote</label>
       <select id="rsvpGuests"></select>
     </div>
 
@@ -323,9 +323,9 @@
 </section>
 
 <div id="rsvpResultBackdrop" class="transfer-backdrop" aria-hidden="true" style="display:none">
-  <div class="transfer-modal" role="dialog" aria-modal="true">
-    <button class="transfer-close" id="btnCloseRsvpResult" type="button">×</button>
-    <h3>Confirmación</h3>
+  <div class="transfer-modal" role="dialog" aria-modal="true" aria-labelledby="rsvpResultTitle">
+    <button class="transfer-close" id="btnCloseRsvpResult" type="button" aria-label="Cerrar confirmación">×</button>
+    <h3 id="rsvpResultTitle">Confirmación</h3>
     <p class="rsvp-result-text" id="rsvpResultText"></p>
     <button class="btn-venue" id="btnOkRsvpResult" type="button">Entendido</button>
   </div>
@@ -348,7 +348,7 @@
   <!-- FOOTER -->
   <footer id="footer">
     <div id="social-icons">
-<a href="https://wa.me/50236011737" target="_blank" aria-label="Whatsapp">
+<a href="https://wa.me/50236011737" target="_blank" aria-label="WhatsApp">
   <i class="fab fa-whatsapp"></i>
 </a>
 <a href="https://www.facebook.com/thetwodesign" target="_blank" aria-label="Facebook">

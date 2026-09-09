@@ -8,7 +8,7 @@ function resolveDashboardEventContext() {
     const externalConfig = window.config || {};
     const eventConfig = externalConfig.event || {};
     const eventIdParam = String(eventConfig.eventIdParam || "eventId").trim() || "eventId";
-    const defaultEventId = String(eventConfig.defaultEventId || "misxv-ana-maria-2026").trim() || "misxv-ana-maria-2026";
+    const defaultEventId = String(eventConfig.defaultEventId || "bryan-jenifer-2026").trim() || "bryan-jenifer-2026";
     const params = new URLSearchParams(window.location.search || "");
     const fromQuery = String(params.get(eventIdParam) || "").trim();
     const fromWindow = String(
@@ -259,15 +259,9 @@ function downloadCsvFile(content, eventId) {
 
 function setSummaryValues(rows) {
     const totalGuests = rows.length;
-    const totalYes = rows
-        .filter((row) => row && row.respuesta === "si")
-        .reduce((acc, row) => acc + (Number(row && row.cantidadConfirmada) || 0), 0);
-    const totalNo = rows
-        .filter((row) => row && row.respuesta === "no")
-        .reduce((acc, row) => acc + (Number(row && row.pasesAsignados) || 0), 0);
-    const totalPending = rows
-        .filter((row) => row && row.respuesta === "pendiente")
-        .reduce((acc, row) => acc + (Number(row && row.pasesAsignados) || 0), 0);
+    const totalYes = rows.filter((row) => row && row.respuesta === "si").length;
+    const totalNo = rows.filter((row) => row && row.respuesta === "no").length;
+    const totalPending = rows.filter((row) => row && row.respuesta === "pendiente").length;
     const totalConfirmedPeople = rows
         .filter((row) => row.respuesta === "si")
         .reduce((acc, row) => acc + (Number(row.cantidadConfirmada) || 0), 0);
