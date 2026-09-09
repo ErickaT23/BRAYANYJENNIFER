@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bryan Folgar & Jenifer Arrivillaga</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nos casamos | Bryan Folgar & Jenifer Arrivillaga">
+  <meta property="og:description" content="Te invitamos a celebrar nuestro matrimonio.">
+  <meta property="og:image" content="images/FOTOINI.jpeg">
+  <meta name="keywords" content="invitación de boda, Bryan Folgar, Jenifer Arrivillaga, boda, amor, celebración">
+  <meta name="author" content="Two Design | Invitaciones Digitales">
+  <link rel="stylesheet" href="style.css">
+  <!-- (Opcional) Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Pinyon+Script&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <!-- ===================== HERO / SOBRE (PORTADA) ===================== -->
+<header class="cover" id="cover">
+  <div class="cover-inner">
+    <div class="mono">
+      <img src="images/MONOGRAMA-BJ.png" alt="Monograma de Bryan y Jenifer" class="mono-img">
+    </div>
+    <h1 class="couple">Bryan Folgar <span class="amp">&</span> Jenifer Arrivillaga</h1>
+    <p class="tag">Nos casamos</p>
+
+    <button class="envelope-wrap" id="btnOpenEnvelope" type="button" aria-label="Abrir invitación desde sobre">
+      <img class="envelope" src="images/ENVELOPE.png" alt="Sobre invitación">
+    </button>
+
+    <div class="guest-card">
+      <div class="guest-line" id="guestCardName">Nombre del invitado</div>
+      <div class="guest-sub">Hemos reservado</div>
+      <div class="guest-seats">
+        <span id="guestCardSeats">x</span> <span id="guestCardSeatsTxt">lugares</span> en su honor
+      </div>
+    </div>
+
+    <button class="btn-primary" id="btnOpenInvite" type="button">
+      Abrir invitación
+    </button>
+  </div>
+
+</header>
+
+<!-- ===================== CONTENIDO INVITACIÓN ===================== -->
+<main id="invitation" class="invitation" aria-hidden="true">
+
+  <!-- HERO FOTO -->
+  <section class="hero-photo fade-in-element" id="hero">
+    <div class="hero-overlay">
+      <div class="mono hero-mono fade-in-element">
+        <img src="images/MONOGRAMA-BJ.png" alt="Monograma de Bryan y Jenifer" class="mono-img hero-mono-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- NOMBRES EDITORIAL + FECHA VERTICAL + MÚSICA -->
+  <section class="names-editorial fade-in-element" id="names">
+    <p class="intro-text intro-verse intro-last">
+      Hoy elegimos caminar juntos para toda la vida,<br>
+      y nos haría muy felices que nos acompañaras<br>
+      a dar el primer paso.
+    </p>
+
+    <div class="names-grid">
+      <div class="names-block">
+        <div class="name-lines">
+          <div>Bryan</div>
+          <div>Folgar</div>
+          <div class="and">&</div>
+          <div>Jenifer</div>
+          <div>Arrivillaga</div>
+        </div>
+      </div>
+
+      <div class="date-vertical">
+        <span>07</span>
+        <span>11</span>
+        <span>26</span>
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- CONTADOR -->
+  <section class="countdown fade-in-element" id="countdown">
+    <h3>Solo faltan</h3>
+
+    <div class="count-row">
+
+      <div class="count-item">
+        <div class="flip" id="flipDays">
+          <div class="top"><span class="digit">00</span></div>
+          <div class="bottom"><span class="digit">00</span></div>
+          <div class="top-flip"><span class="digit">00</span></div>
+          <div class="bottom-flip"><span class="digit">00</span></div>
+        </div>
+        <div class="label">DÍAS</div>
+      </div>
+  
+      <div class="count-item">
+        <div class="flip" id="flipHours">
+          <div class="top"><span class="digit">00</span></div>
+          <div class="bottom"><span class="digit">00</span></div>
+          <div class="top-flip"><span class="digit">00</span></div>
+          <div class="bottom-flip"><span class="digit">00</span></div>
+        </div>
+        <div class="label">HORAS</div>
+      </div>
+  
+      <div class="count-item">
+        <div class="flip" id="flipMins">
+          <div class="top"><span class="digit">00</span></div>
+          <div class="bottom"><span class="digit">00</span></div>
+          <div class="top-flip"><span class="digit">00</span></div>
+          <div class="bottom-flip"><span class="digit">00</span></div>
+        </div>
+        <div class="label">MIN</div>
+      </div>
+  
+      <div class="count-item">
+        <div class="flip" id="flipSecs">
+          <div class="top"><span class="digit">00</span></div>
+          <div class="bottom"><span class="digit">00</span></div>
+          <div class="top-flip"><span class="digit">00</span></div>
+          <div class="bottom-flip"><span class="digit">00</span></div>
+        </div>
+        <div class="label">SEG</div>
+      </div>
+    </div>
+
+    <div class="half-photo">
+      <img src="images/S1.jpeg" alt="Foto pareja">
+    </div>
+  </section>
+
+<!-- FOTO FULLSCREEN SEPARADOR -->
+  <!-- ATTIRE -->
+  <section class="dress fade-in-element" id="dress">
+    <div class="event-icon">
+      <img src="images/DRESSCODE.svg" alt="Attire">
+    </div>
+    <h3>Attire</h3>
+    <p class="venue-title">FORMAL / ELEGANTE</p>
+    <p class="dress-note">Agradecemos evitar el blanco y tonos similares, borgoña y verde salvia.</p>
+  </section>
+
+  <section class="full-sep" style="background-image:url('images/S2.jpeg')"></section>
+
+  <section class="venues fade-in-element" id="venues">
+    <h3>Venues &amp; Schedules</h3>
+
+    <article class="venue-item">
+      <div class="event-icon">
+        <img src="images/CHURCH.svg" alt="Ceremonia Religiosa">
+      </div>
+      <p class="venue-title">Ceremonia Religiosa</p>
+      <p class="venue-place">Rectoría San Agustín, zona 1</p>
+      <p class="venue-time">5:00 pm</p>
+      <a class="btn-venue" href="https://www.google.com/maps/place/Rector%C3%ADa+San+Agust%C3%ADn/@14.6383849,-90.5183272,17z/data=!4m6!3m5!1s0x8589a219daaf9d7f:0x2914c3271308971f!8m2!3d14.6385616!4d-90.5157207!16s%2Fg%2F1vntk6rn?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Cómo llegar</a>
+    </article>
+
+    <article class="venue-item">
+      <div class="event-icon">
+        <img src="images/CHEERS.svg" alt="Recepción">
+      </div>
+      <p class="venue-title">Recepción</p>
+      <p class="venue-place">Club Guatemala</p>
+      <p class="venue-time">7:00 pm</p>
+      <a class="btn-venue" href="https://www.google.com/maps/place/Club+Guatemala/data=!4m2!3m1!1s0x0:0x38ca3e9e7e81fac2?sa=X&amp;ved=1t:2428&amp;ictx=111" target="_blank" rel="noopener">Cómo llegar</a>
+    </article>
+  </section>
+
+  <section class="full-sep" style="background-image:url('images/H1.jpeg')"></section>
+  <!-- MESA DE REGALOS -->
+<!-- ================= MESA DE REGALOS ================= -->
+<section class="gifts fade-in-element" id="gifts">
+
+  <div class="event-icon">
+    <img src="images/GIFTS.svg" alt="Gifts">
+  </div>
+
+  <h3>Mesa de Regalos</h3>
+
+  <p class="gifts-strong">
+    Nuestro mejor regalo es compartir este momento contigo.<br>
+    Si deseas hacernos un detalle, hemos preparado una lista de regalos en Cemaco,<br>
+    pensada para acompañarnos en el comienzo de nuestra nueva vida juntos.
+  </p>
+
+  <div class="gifts-buttons">
+    <a class="btn-venue is-disabled" aria-disabled="true">Ver mesa de regalos</a>
+  </div>
+
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<section class="wishes fade-in-element" id="wishesSection">
+  <div class="event-icon">
+    <img src="images/BUENOSDESEOS.png" alt="Buenos Deseos">
+  </div>
+  <h3>Buenos Deseos</h3>
+  <p class="wishes-strong">
+    Déjanos un mensaje lleno de cariño para guardar este recuerdo por siempre.
+  </p>
+
+  <div class="wishes-buttons">
+    <button class="btn-venue" type="button" onclick="toggleWishForm()">Escribir Deseo</button>
+    <button class="btn-venue" type="button" onclick="toggleWishes()">Ver Deseos</button>
+  </div>
+
+  <div class="wish-form-panel hidden" id="wish-form-panel">
+    <form class="wish-form" id="wish-form" onsubmit="return submitWish(event)">
+      <label for="wish-name" class="wish-label">Nombre</label>
+      <input id="wish-name" type="text" autocomplete="name" required>
+
+      <label for="wish-message" class="wish-label">Mensaje</label>
+      <textarea id="wish-message" rows="4" required></textarea>
+
+      <button class="btn-venue" type="submit">Enviar Deseo</button>
+      <p class="wish-status" id="wish-status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <div class="wishes-list hidden" id="wishes"></div>
+</section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+  <!-- RSVP (TU BLOQUE) -->
+  <!-- Pega aquí exactamente tu sección RSVP + Modal (como lo enviaste) -->
+  <!-- ================= RSVP SECTION ================= -->
+<section class="rsvp fade-in-element" id="rsvpSection">
+  <div class="event-icon">
+    <img src="images/RSVP.svg" alt="RSVP">
+  </div>
+  <h3>Confirma tu Asistencia</h3>
+  <p class="rsvp-strong">
+    Para nosotros es muy importante que confirmes tu asistencia lo antes posible,
+    o bien indicarnos si no podrás acompañarnos.
+  </p>
+
+  <div class="rsvp-inline" id="rsvpInline">
+    <label for="rsvpNombre" class="rsvp-label">Nombre</label>
+    <input id="rsvpNombre" type="text" readonly>
+
+    <p class="rsvp-label rsvp-choice-label">¿Asistirás?</p>
+    <div class="rsvp-actions">
+      <button id="btnRsvpSi" class="rsvp-btn rsvp-yes" type="button">Sí, es un gusto.</button>
+      <button id="btnRsvpNo" class="rsvp-btn rsvp-no" type="button">No, lamentablemente no podré.</button>
+    </div>
+
+    <div id="rsvpGuestsWrap" class="rsvp-guests-wrap" style="display:none">
+      <label for="rsvpGuests" class="rsvp-label">Número de invitados</label>
+      <select id="rsvpGuests"></select>
+    </div>
+
+    <button id="btnConfirmarRsvp" type="button">Confirmar</button>
+  </div>
+
+  <div id="msgRsvp" class="rsvp-msg" style="display:none"></div>
+</section>
+
+<div id="rsvpResultBackdrop" class="transfer-backdrop" aria-hidden="true" style="display:none">
+  <div class="transfer-modal" role="dialog" aria-modal="true">
+    <button class="transfer-close" id="btnCloseRsvpResult" type="button">×</button>
+    <h3>Confirmación</h3>
+    <p class="rsvp-result-text" id="rsvpResultText"></p>
+    <button class="btn-venue" id="btnOkRsvpResult" type="button">Entendido</button>
+  </div>
+</div>
+
+  <!-- FOTO CAMBIANTE -->
+  <section class="full-sep full-sep-rotating" id="rotatingSep">
+    <img id="rotatingSepImg" src="images/FS1.jpeg" alt="Foto pareja">
+  </section>
+
+  <!-- CIERRE -->
+  <section class="closing fade-in-element" id="closing">
+    <div class="mono">
+      <img src="images/MONOGRAMA-BJ.png" alt="Monograma de Bryan y Jenifer" class="mono-img">
+    </div>
+    <h3>Bryan & Jenifer</h3>
+    <p>7 de noviembre de 2026</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div id="social-icons">
+<a href="https://wa.me/50236011737" target="_blank" aria-label="Whatsapp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<a href="https://www.facebook.com/thetwodesign" target="_blank" aria-label="Facebook">
+  <i class="fab fa-facebook"></i>
+</a>
+<a href="https://www.instagram.com/thetwodesign" target="_blank" aria-label="Instagram">
+  <i class="fab fa-instagram"></i>
+</a>
+</div>
+    <div class="footer-logo">
+      <img id="footer-logo" alt="Logo de la empresa" src="images/logo.png">
+    </div>
+  </footer>
+
+</main>
+<audio id="weddingMusic" src="music.mp3" preload="auto" loop></audio>
+<button class="music-bubble" id="musicBubble" type="button" aria-label="Pausar música" aria-pressed="true" hidden>
+  <i class="fa-solid fa-pause" aria-hidden="true"></i>
+</button>
+<script src="config.js"></script>
+<script type="module" src="database.js"></script>
+<script src="loads.js"></script>
+<script src="rsvp.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+  
