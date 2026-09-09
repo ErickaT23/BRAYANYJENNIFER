@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 2) Botón abrir invitación
   initMusicPlayer();
+  initWeddingPhotosQr();
 
   const btnOpenInvite = $$("#btnOpenInvite");
   if (btnOpenInvite) {
@@ -36,6 +37,22 @@ document.addEventListener("DOMContentLoaded", () => {
     "images/FS3.jpeg",
   ]);
 });
+
+function initWeddingPhotosQr() {
+  const container = document.getElementById("weddingPhotosQr");
+  const link = document.getElementById("weddingPhotosLink");
+  if (!container || !link || typeof window.QRCode === "undefined") return;
+
+  container.replaceChildren();
+  new window.QRCode(container, {
+    text: link.href,
+    width: 180,
+    height: 180,
+    colorDark: "#3b050a",
+    colorLight: "#ffffff",
+    correctLevel: window.QRCode.CorrectLevel.M,
+  });
+}
 
 /* ===================== INVITADO EN PORTADA ===================== */
 function paintGuestCard() {

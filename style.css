@@ -6,11 +6,18 @@
     --gold-3: #f1d889;
     --gold-4: #fff3c4;
     --gold-5: #a5761f;
+    --gold-strong-gradient: linear-gradient(120deg, #59472d 0%, #876a3e 25%, #b49a6c 48%, #927344 68%, #604b30 100%);
+
+    --burgundy-base: #3b050a;
+    --burgundy-dark: #210205;
+    --burgundy-light: #741622;
+    --burgundy-gradient: linear-gradient(135deg, #210205 0%, #3b050a 38%, #741622 70%, #3b050a 100%);
+    --burgundy-gradient-soft: linear-gradient(135deg, rgba(33,2,5,.16) 0%, rgba(59,5,10,.24) 48%, rgba(116,22,34,.16) 100%);
   
-    /* OLIVO */
-    --beige: #9f8451;
-    --beige-dark: #7e704c;
-    --beige-soft: rgba(85,107,47,.12);
+    /* Burgundy */
+    --beige: var(--burgundy-base);
+    --beige-dark: var(--burgundy-dark);
+    --beige-soft: rgba(59,5,10,.12);
   
     --line: rgba(29,29,29,.18);
     --card: rgba(255,255,255,.65);
@@ -51,15 +58,15 @@
   
   .couple{
     margin:12px 0 6px;
-    font-size:24px;
-    font-weight:500;
+    font-size:clamp(29px, 4vw, 36px);
+    font-weight:600;
     font-family: var(--title);
     letter-spacing: 0.02em;
-    background: linear-gradient(135deg, #6f5a33 0%, #9f8451 40%, #d2bb8a 68%, #8d7244 100%);
+    background: var(--gold-strong-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    text-shadow: 0 1px 0 rgba(255, 243, 214, 0.25), 0 2px 8px rgba(120, 92, 45, 0.14);
+    text-shadow: 0 1px 0 rgba(255, 241, 174, 0.38), 0 3px 10px rgba(112, 68, 5, 0.2);
   }
 
   .couple.gold-champagne{
@@ -86,7 +93,10 @@
     text-shadow: 0 1px 0 rgba(255, 243, 214, 0.25), 0 2px 8px rgba(120, 92, 45, 0.14);
   }
   
-  .amp{color:var(--beige)}
+  .amp{
+    color:#876a3e;
+    -webkit-text-fill-color:#876a3e;
+  }
   
   .tag{
     margin:0 0 18px;
@@ -129,6 +139,12 @@
     margin-bottom:6px;
     font-family: var(--cursive);
     font-size: 30px;
+    background: var(--gold-strong-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 1px 0 rgba(255, 241, 174, 0.32), 0 2px 8px rgba(112, 68, 5, 0.16);
   }
   
   .guest-sub{
@@ -143,7 +159,11 @@
   .guest-seats{
     margin-top:6px;
     font-size:14px;
-    color:var(--beige-dark);
+    background:var(--gold-strong-gradient);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
     font-family: var(--text);
     font-size: 20px;
     font-style: italic;
@@ -152,7 +172,7 @@
   .btn-primary{
     border:none;
     padding:12px 18px;
-    background:var(--beige);
+    background:var(--burgundy-gradient);
     color:white;
     font-family:var(--title);
     letter-spacing:.12em;
@@ -165,7 +185,7 @@
 a{
     text-decoration:none;  
   }
-  .btn-primary:hover{background:var(--beige-dark)}
+  .btn-primary:hover{background:linear-gradient(135deg, #3b050a 0%, #741622 48%, #210205 100%)}
   .btn-primary:disabled{opacity:.6;cursor:not-allowed}
   
   .scroll-hint{
@@ -190,8 +210,8 @@ a{
     height: 48px;
     border: 1px solid rgba(184,138,46,.46);
     border-radius: 999px;
-    background: rgba(247,244,239,.26);
-    color: rgba(160,120,46,.82);
+    background: rgba(59,5,10,.12);
+    color: var(--gold-2);
     box-shadow: 0 10px 24px rgba(29,29,29,.08);
     backdrop-filter: blur(5px);
     cursor: pointer;
@@ -291,7 +311,7 @@ a{
   .quote-top,.quote-bottom{margin:0;font-size:14px;letter-spacing:.06em}
   
   .names-editorial{
-    padding:44px 18px;
+    padding:44px 18px 20px;
     text-align:center;
     background-color: transparent;
   }
@@ -318,6 +338,16 @@ a{
   .intro-last{
     font-size:21px;
     margin-bottom:26px;
+    text-wrap:balance;
+  }
+
+  .intro-last span{
+    display:block;
+    color:var(--burgundy-base);
+  }
+
+  .intro-last span + span{
+    margin-top:12px;
   }
 
   .names-editorial .intro-verse{
@@ -355,6 +385,7 @@ a{
     align-items: flex-end;
     justify-content: center;
     font-family: var(--title);
+    font-weight:600;
     background: linear-gradient(135deg, #8b6a3e 0%, #c9a26a 24%, #8d7244 48%, #e8c997 66%, #b38954 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -379,7 +410,11 @@ a{
     flex-direction:column;
     gap:8px;
     letter-spacing:.12em;
-    color:var(--beige);
+    background:var(--burgundy-gradient);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
     font-weight:600;
     font-size: 50px;
     font-family: var(--text);
@@ -415,7 +450,7 @@ a{
 #countdown{
     padding:34px 18px 10px;
     text-align:center;
-    background-color: #8b6a3e3d;
+    background: var(--burgundy-gradient-soft);
     display: flex;
     flex-direction: column;
   }
@@ -430,7 +465,7 @@ a{
   }
   /* ====== CONTADOR HORIZONTAL ====== */
 .countdown{
-    background:#f2e6db;
+    background: var(--burgundy-gradient-soft);
     text-align:center;
     padding:40px 18px;
   }
@@ -455,7 +490,8 @@ a{
     margin-top:8px;
     font-size:10px;
     letter-spacing:3px;
-    color:#555;
+    color:var(--burgundy-base);
+    font-weight:600;
     text-transform: uppercase;
   }
   /* ✅ si en pantallas muy pequeñas no caben, se ajusta */
@@ -473,7 +509,7 @@ a{
     border-radius:6px;
     box-shadow:0 6px 12px rgba(0,0,0,0.15);
     overflow:hidden;
-    background:#fff;
+    background:var(--burgundy-gradient);
   
     --h: 56px;
     --half: 28px;
@@ -489,12 +525,12 @@ a{
     width:100%;
     height:50%;
     overflow:hidden;
-    background:#fff;
+    background:var(--burgundy-gradient);
     backface-visibility:hidden;
     transform-style:preserve-3d;
   }
   
-  .flip .top{ top:0; border-bottom:1px solid rgba(0,0,0,0.15); }
+  .flip .top{ top:0; border-bottom:1px solid rgba(255,255,255,.16); }
   .flip .bottom{ bottom:0; }
   
   /* Número completo recortado */
@@ -510,7 +546,7 @@ a{
     font-family:"Cormorant Garamond", serif;
     font-size:28px;
     font-weight:600;
-    color:#111;
+    color:#f2e8d7;
     letter-spacing:2px;
   }
   
@@ -525,7 +561,7 @@ a{
   /* piezas animadas */
   .flip .top-flip{
     top:0;
-    border-bottom:1px solid rgba(0,0,0,0.15);
+    border-bottom:1px solid rgba(255,255,255,.16);
     transform-origin: bottom;
     opacity:0;
   }
@@ -575,8 +611,46 @@ a{
   }
   /* la sección siguiente baja para dejar espacio al overlay de la foto */  
   .blessing{
-    padding:74px 18px 34px;
+    padding:38px 18px 34px;
     text-align:center;
+  }
+  .blessing-intro{
+    max-width:560px;
+    margin:0 auto 30px;
+    color:var(--burgundy-base);
+    font-family:var(--text);
+    font-size:21px;
+    line-height:1.5;
+    text-wrap:balance;
+  }
+  .parents-list{
+    width:min(680px, 100%);
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:22px;
+  }
+  .parents-list article{
+    padding:18px 14px;
+  }
+  .parents-list h3{
+    margin:0 0 10px;
+  }
+  .parents-list p{
+    margin:0;
+    color:var(--burgundy-base);
+    font-family:var(--title);
+    font-size:18px;
+    line-height:1.5;
+  }
+  .memorial-mark{
+    font-family:serif;
+  }
+  @media (max-width:560px){
+    .parents-list{
+      grid-template-columns:1fr;
+      gap:8px;
+    }
   }
   .blessing h3{
     font-size:20px;
@@ -766,8 +840,8 @@ a{
   }
   #btnConfirmarRsvp:hover,
   #btnSendWish:hover{
-    background: transparent;
-    color: var(--beige);
+    background: linear-gradient(135deg, #3b050a 0%, #741622 48%, #210205 100%);
+    color: #fff;
   }
   
   #btnConfirmarRsvp:disabled,
@@ -798,9 +872,9 @@ a{
   }
   /* Confirmado UI */
 .rsvp-confirmed{
-    background: rgba(85,107,47,.12) !important;
+    background: rgba(59,5,10,.12) !important;
     color: var(--beige-dark) !important;
-    border-color: rgba(85,107,47,.35) !important;
+    border-color: rgba(59,5,10,.35) !important;
   }
   /* ================= MODAL ================= */
 .rsvp-backdrop{
@@ -895,7 +969,7 @@ a{
   }
   
   .rsvp-yes{
-    background: var(--beige);
+    background: var(--burgundy-gradient);
     color: #fff;
     border-color: var(--beige);
   }
@@ -1004,7 +1078,6 @@ a{
     margin: 8px 0 0;
     font-family: var(--title);
     font-size: 24px;
-    color: var(--beige-dark);
     font-weight: 400;
   }
   .venue-place,
@@ -1012,28 +1085,39 @@ a{
     margin: 8px 0 0;
     font-family: var(--text);
     font-size: 20px;
-    color: var(--beige-dark);
     font-weight: 300;
+  }
+  .venue-title,
+  .venue-place,
+  .venue-time{
+    background:var(--gold-strong-gradient);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
   }
   .btn-venue{
     display: inline-block;
     margin-top: 14px;
     padding: 9px 16px;
-    border: 1px solid rgba(29,29,29,.35);
+    border: 1px solid #927344;
     border-radius: 999px;
     font-family: var(--title);
     font-size: 11px;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--ink);
-    background: rgba(255,255,255,.38);
+    color: #876a3e;
+    background: transparent;
     backdrop-filter: blur(2px);
-    transition: all .25s ease;
+    box-shadow: 0 6px 16px rgba(89,71,45,.08);
+    transition: transform .25s ease, border-color .25s ease, color .25s ease, box-shadow .25s ease;
   }
   .btn-venue:hover{
-    background: rgba(255,255,255,.62);
-    border-color: rgba(29,29,29,.55);
-    transform: translateY(-1px);
+    background: transparent;
+    border-color: #59472d;
+    color: #59472d;
+    box-shadow: 0 10px 22px rgba(89,71,45,.16);
+    transform: translateY(-2px);
   }
 
   .btn-venue.is-disabled{
@@ -1041,6 +1125,7 @@ a{
     opacity: 0.55;
     pointer-events: none;
   }
+
   .venues.is-visible .venue-item{
     opacity: 1;
     transform: translateY(0);
@@ -1082,6 +1167,55 @@ a{
     letter-spacing: .08em;
     text-transform: uppercase;
     color: rgba(29,29,29,.56);
+  }
+
+  .wedding-photos{
+    width:min(720px, calc(100% - 36px));
+    margin:34px auto 0;
+    padding:24px 18px 34px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+  }
+  .wedding-photos h3{
+    max-width:560px;
+    margin:18px 0 8px;
+    font-family:var(--cursive);
+    font-size:40px;
+    line-height:1.05;
+    background:var(--gold-strong-gradient);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+  }
+  .wedding-photos p{
+    max-width:560px;
+    margin:8px 0 4px;
+    color:var(--burgundy-base);
+    font-family:var(--text);
+    font-size:20px;
+    line-height:1.5;
+    text-wrap:balance;
+  }
+  .photos-qr{
+    width:204px;
+    min-height:204px;
+    margin-top:24px;
+    padding:12px;
+    display:grid;
+    place-items:center;
+    border:1px solid rgba(59,5,10,.2);
+    border-radius:14px;
+    background:#fff;
+    box-shadow:0 12px 30px rgba(59,5,10,.12);
+  }
+  .photos-qr img,
+  .photos-qr canvas{
+    display:block;
+    max-width:100%;
+    height:auto;
   }
   .modal-account-buttons{
     margin-top: 14px;
@@ -1187,7 +1321,7 @@ a{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    background-color:#8b6a3e3d;
+    background: var(--burgundy-gradient);
     flex-direction: column;
   }
   .footer-brand{
@@ -1267,11 +1401,12 @@ a{
   .calendar-btn{
     margin: 18px auto 0;
     display: inline-block;
+    align-self: center;
     border-color: var(--beige);
     color: var(--beige);
   }
   .calendar-btn:hover{
-    background: var(--beige);
+    background: var(--burgundy-gradient);
     color: #fff;
     border-color: var(--beige);
   }
@@ -1704,11 +1839,147 @@ section.is-visible .btn-outline:nth-of-type(2) {
   font-family: var(--text);
   font-size: 14px;
   color: var(--beige-dark);
-  background: rgba(85,107,47,.12);
-  border: 1px solid rgba(85,107,47,.22);
+  background: rgba(59,5,10,.12);
+  border: 1px solid rgba(59,5,10,.22);
   padding: 10px 12px;
   border-radius: 12px;
 }
+/* Titulos y textos editoriales unificados con el estilo de lugares */
+.dress h3.section-title,
+.gifts h3.section-title,
+.wedding-photos h3.section-title,
+.wishes h3.section-title,
+.rsvp h3.section-title{
+  margin:8px 0 0;
+  font-family:var(--title);
+  font-size:24px;
+  font-weight:400;
+  line-height:1.3;
+  background:var(--gold-strong-gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+
+.dress p.section-copy,
+.gifts p.section-copy,
+.wedding-photos p.section-copy,
+.wishes p.section-copy,
+.rsvp p.section-copy{
+  margin:8px 0 0;
+  font-family:var(--text);
+  font-size:20px;
+  font-weight:300;
+  line-height:1.45;
+  background:var(--gold-strong-gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Paleta reservada del dress code */
+.palette-block{
+  margin-top:24px;
+  text-align:center;
+}
+.dress .palette-title{
+  margin:0 0 14px;
+  color:var(--burgundy-base);
+  font-family:var(--title);
+  font-size:14px;
+  font-weight:500;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.palette-swatches{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  flex-wrap:wrap;
+}
+.palette-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+.palette-circle{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  box-shadow:0 5px 14px rgba(59,5,10,.14);
+}
+.palette-circle-white{
+  border:1px solid rgba(59,5,10,.22);
+  background:#fff;
+}
+.palette-circle-burgundy{
+  background:#3b050a;
+}
+.palette-circle-sage{
+  background:#9aa784;
+}
+.palette-label{
+  color:var(--burgundy-base);
+  font-family:var(--text);
+  font-size:14px;
+}
+
+.gifts-strong span{
+  display:block;
+  text-wrap:balance;
+}
+.gifts-strong span + span{
+  margin-top:12px;
+}
+
+/* Botones internos transparentes con acentos dorados */
+.invitation .btn-venue,
+.invitation .btn-outline,
+.invitation .rsvp-btn,
+.invitation #btnConfirmarRsvp{
+  border:1px solid #876a3e;
+  border-radius:999px;
+  background:transparent;
+  color:#876a3e;
+  font-family:var(--title);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  box-shadow:0 7px 18px rgba(89,71,45,.1);
+}
+.invitation .btn-venue:hover,
+.invitation .btn-outline:hover,
+.invitation .rsvp-btn:hover,
+.invitation #btnConfirmarRsvp:hover{
+  border-color:#59472d;
+  background:transparent;
+  color:#59472d;
+  transform:translateY(-2px);
+  box-shadow:0 11px 22px rgba(89,71,45,.16);
+}
+.invitation .rsvp-btn.is-active{
+  border-color:#59472d;
+  box-shadow:inset 0 0 0 1px #59472d, 0 8px 18px rgba(89,71,45,.12);
+}
+
+/* Contador blanco con acentos corinto */
+.flip,
+.flip .top,
+.flip .bottom,
+.flip .top-flip,
+.flip .bottom-flip{
+  background:#fff;
+}
+.flip .digit{
+  color:var(--burgundy-base);
+}
+.flip .top,
+.flip .top-flip{
+  border-bottom-color:rgba(59,5,10,.15);
+}
+
 /* Accesibilidad */
   @media (prefers-reduced-motion: reduce){
     .btn-shimmer::after{ animation: none !important; }

@@ -61,9 +61,8 @@
   <!-- NOMBRES EDITORIAL + FECHA VERTICAL + MÚSICA -->
   <section class="names-editorial fade-in-element" id="names">
     <p class="intro-text intro-verse intro-last">
-      Hoy elegimos caminar juntos para toda la vida,<br>
-      y nos haría muy felices que nos acompañaras<br>
-      a dar el primer paso.
+      <span>Hoy elegimos caminar juntos para toda la vida.</span>
+      <span>Nos haría muy felices que nos acompañaras a dar este primer paso.</span>
     </p>
 
     <div class="names-grid">
@@ -84,7 +83,20 @@
       </div>
     </div>
 
+  </section>
 
+  <section class="blessing fade-in-element" id="blessing">
+    <p class="blessing-intro">Con la bendición de Dios y de nuestros amados padres</p>
+    <div class="parents-list">
+      <article>
+        <h3>Padres del novio</h3>
+        <p>Erick Folgar y Vilma González</p>
+      </article>
+      <article>
+        <h3>Padres de la novia</h3>
+        <p>Antonio Arrivillaga <span class="memorial-mark" aria-label="fallecido">†</span> y Aura Ramos</p>
+      </article>
+    </div>
   </section>
 
   <!-- CONTADOR -->
@@ -134,32 +146,25 @@
       </div>
     </div>
 
+    <a
+      class="btn-outline calendar-btn"
+      href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Boda%20de%20Bryan%20Folgar%20y%20Jenifer%20Arrivillaga&amp;dates=20261107T170000/20261107T235900&amp;ctz=America%2FGuatemala&amp;details=Ceremonia%20religiosa%20a%20las%2017%3A00%20en%20Rector%C3%ADa%20San%20Agust%C3%ADn.%20Recepci%C3%B3n%20a%20las%2019%3A00%20en%20Club%20Guatemala.&amp;location=Rector%C3%ADa%20San%20Agust%C3%ADn%2C%20zona%201%2C%20Ciudad%20de%20Guatemala"
+      target="_blank"
+      rel="noopener"
+    >Agregar al calendario</a>
+
     <div class="half-photo">
       <img src="images/S1.jpeg" alt="Foto pareja">
     </div>
   </section>
 
-<!-- FOTO FULLSCREEN SEPARADOR -->
-  <!-- ATTIRE -->
-  <section class="dress fade-in-element" id="dress">
-    <div class="event-icon">
-      <img src="images/DRESSCODE.svg" alt="Attire">
-    </div>
-    <h3>Attire</h3>
-    <p class="venue-title">FORMAL / ELEGANTE</p>
-    <p class="dress-note">Agradecemos evitar el blanco y tonos similares, borgoña y verde salvia.</p>
-  </section>
-
-  <section class="full-sep" style="background-image:url('images/S2.jpeg')"></section>
-
+  <!-- LUGARES Y HORARIOS -->
   <section class="venues fade-in-element" id="venues">
-    <h3>Venues &amp; Schedules</h3>
-
-    <article class="venue-item">
+    <article class="venue-item venue-item-ceremony">
       <div class="event-icon">
-        <img src="images/CHURCH.svg" alt="Ceremonia Religiosa">
+        <img src="images/CHURCH.png" alt="Ceremonia Religiosa">
       </div>
-      <p class="venue-title">Ceremonia Religiosa</p>
+      <p class="venue-title">Ceremonia</p>
       <p class="venue-place">Rectoría San Agustín, zona 1</p>
       <p class="venue-time">5:00 pm</p>
       <a class="btn-venue" href="https://www.google.com/maps/place/Rector%C3%ADa+San+Agust%C3%ADn/@14.6383849,-90.5183272,17z/data=!4m6!3m5!1s0x8589a219daaf9d7f:0x2914c3271308971f!8m2!3d14.6385616!4d-90.5157207!16s%2Fg%2F1vntk6rn?entry=ttu&amp;g_ep=EgoyMDI2MDkwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Cómo llegar</a>
@@ -167,7 +172,7 @@
 
     <article class="venue-item">
       <div class="event-icon">
-        <img src="images/CHEERS.svg" alt="Recepción">
+        <img src="images/CHEERS.png" alt="Recepción">
       </div>
       <p class="venue-title">Recepción</p>
       <p class="venue-place">Club Guatemala</p>
@@ -176,21 +181,48 @@
     </article>
   </section>
 
-  <section class="full-sep" style="background-image:url('images/H1.jpeg')"></section>
+  <section class="full-sep" style="background-image:url('images/S2.jpeg')"></section>
+
+  <!-- ATTIRE -->
+  <section class="dress fade-in-element" id="dress">
+    <div class="event-icon">
+      <img src="images/DRESSCODE.png" alt="Attire">
+    </div>
+    <h3 class="section-title">Dress Code</h3>
+    <p class="venue-title">FORMAL / ELEGANTE</p>
+    <p class="dress-note section-copy">Agradecemos evitar el blanco y tonos similares, borgoña y verde salvia.</p>
+    <div class="palette-block" aria-label="Paleta reservada">
+      <p class="palette-title">Paleta reservada</p>
+      <div class="palette-swatches">
+        <div class="palette-item">
+          <span class="palette-circle palette-circle-white" aria-hidden="true"></span>
+          <span class="palette-label">Blanco</span>
+        </div>
+        <div class="palette-item">
+          <span class="palette-circle palette-circle-burgundy" aria-hidden="true"></span>
+          <span class="palette-label">Borgoña</span>
+        </div>
+        <div class="palette-item">
+          <span class="palette-circle palette-circle-sage" aria-hidden="true"></span>
+          <span class="palette-label">Verde salvia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- MESA DE REGALOS -->
 <!-- ================= MESA DE REGALOS ================= -->
 <section class="gifts fade-in-element" id="gifts">
 
   <div class="event-icon">
-    <img src="images/GIFTS.svg" alt="Gifts">
+    <img src="images/GIFT.png" alt="Mesa de regalos">
   </div>
 
-  <h3>Mesa de Regalos</h3>
+  <h3 class="section-title">Mesa de Regalos</h3>
 
-  <p class="gifts-strong">
-    Nuestro mejor regalo es compartir este momento contigo.<br>
-    Si deseas hacernos un detalle, hemos preparado una lista de regalos en Cemaco,<br>
-    pensada para acompañarnos en el comienzo de nuestra nueva vida juntos.
+  <p class="gifts-strong section-copy">
+    <span>Nuestro mejor regalo es compartir este momento contigo.</span>
+    <span>Si deseas hacernos un detalle, hemos preparado una lista en Cemaco para acompañarnos al comenzar nuestra nueva vida juntos.</span>
   </p>
 
   <div class="gifts-buttons">
@@ -199,14 +231,37 @@
 
 </section>
 
+<section class="full-sep" style="background-image:url('images/H1.jpeg')"></section>
+
+<div class="section-divider" aria-hidden="true"></div>
+
+<section class="wedding-photos fade-in-element" id="weddingPhotos">
+  <div class="event-icon">
+    <img src="images/CAMERA.png" alt="Fotografías de la boda">
+  </div>
+  <h3 class="section-title">¡Hagamos de los recuerdos una realidad!</h3>
+  <p class="section-copy">
+    Agrega las fotografías de nuestra boda. Puedes subirlas por medio del botón
+    o escaneando el código QR.
+  </p>
+  <div class="photos-qr" id="weddingPhotosQr" aria-label="Código QR para subir fotografías"></div>
+  <a
+    class="btn-venue"
+    id="weddingPhotosLink"
+    href="https://drive.google.com/drive/folders/1nQqforPZm_N8MSlPY4Bk5ACSH1BxzQA5?usp=drive_link"
+    target="_blank"
+    rel="noopener"
+  >Subir fotografías</a>
+</section>
+
 <div class="section-divider" aria-hidden="true"></div>
 
 <section class="wishes fade-in-element" id="wishesSection">
   <div class="event-icon">
     <img src="images/BUENOSDESEOS.png" alt="Buenos Deseos">
   </div>
-  <h3>Buenos Deseos</h3>
-  <p class="wishes-strong">
+  <h3 class="section-title">Buenos Deseos</h3>
+  <p class="wishes-strong section-copy">
     Déjanos un mensaje lleno de cariño para guardar este recuerdo por siempre.
   </p>
 
@@ -238,10 +293,10 @@
   <!-- ================= RSVP SECTION ================= -->
 <section class="rsvp fade-in-element" id="rsvpSection">
   <div class="event-icon">
-    <img src="images/RSVP.svg" alt="RSVP">
+    <img src="images/RSVP.png" alt="RSVP">
   </div>
-  <h3>Confirma tu Asistencia</h3>
-  <p class="rsvp-strong">
+  <h3 class="section-title">Confirma tu Asistencia</h3>
+  <p class="rsvp-strong section-copy">
     Para nosotros es muy importante que confirmes tu asistencia lo antes posible,
     o bien indicarnos si no podrás acompañarnos.
   </p>
@@ -317,6 +372,7 @@
 <script type="module" src="database.js"></script>
 <script src="loads.js"></script>
 <script src="rsvp.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
