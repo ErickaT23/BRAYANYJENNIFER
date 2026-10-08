@@ -34,8 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // 5) Foto separador rotativa (si existe el elemento)
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     initRotatingSep([
-      "images/FS2.jpeg",
-      "images/FS3.jpeg",
+      "images/FOTOINI.webp",
+      "images/S2.webp",
+      "images/H1.webp",
+      "images/S1.webp",
     ]);
   }
 });
@@ -245,11 +247,11 @@ function initRotatingSep(images){
         imgEl.style.opacity = 1;
       };
 
-    }, 400);
+    }, 650);
 
   }
 
-  setInterval(changeImage, 5000);
+  setInterval(changeImage, 6500);
 }
 
 //contador

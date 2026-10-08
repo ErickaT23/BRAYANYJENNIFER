@@ -259,8 +259,8 @@ a{
     content:"";
     position:absolute;
     inset:0;
-    background:url("images/FOTOINI.jpeg") center/cover no-repeat;
-    filter:grayscale(100%) contrast(1.08) brightness(.92);
+    background:url("images/FOTOINI.webp") center/cover no-repeat;
+    filter:grayscale(100%) contrast(.98) brightness(1.38);
     transform:scale(1.01);
   }
   .hero-overlay{
@@ -269,6 +269,7 @@ a{
     align-items:flex-start;
     justify-content:center;
     padding-top:26px;
+    background:rgba(255,255,255,.28);
   }
   .hero-mono{color:white}
   /* ================= TRUE LOVE DORADO ================= */
@@ -603,11 +604,16 @@ a{
     transform: translateY(55px); /* ✅ cuánto invade (ajusta) */
   }
   
-  .half-photo img{
+.half-photo img{
     width:100%;
     display:block;
+    filter:grayscale(100%) contrast(.98) brightness(1.28);
     box-shadow: 0 10px 26px rgba(0,0,0,.18);
     z-index: 80;   
+  }
+
+  .full-sep.photo-light{
+    filter:grayscale(100%) contrast(.98) brightness(1.28);
   }
   /* la sección siguiente baja para dejar espacio al overlay de la foto */  
   .blessing{
@@ -1010,7 +1016,7 @@ a{
     width: 100%;
     height: 65vh;
     overflow: hidden;
-    background:#000;
+    background:#fff;
   }
   
   .full-sep-rotating > img{
@@ -1018,7 +1024,8 @@ a{
     height: 100%;
     object-fit: cover;          /* ✅ full-bleed para slideshow */
     object-position: center;
-    transition: opacity .6s ease;
+     filter:grayscale(100%) contrast(.98) brightness(1.28);
+     transition: opacity 1.3s ease;
   }
   .dress{
     margin-top: 80px;
