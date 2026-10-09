@@ -33,6 +33,13 @@ function getGuestDirectoryForEvent(eventId) {
     return guestDirectoriesByEvent[eventId] || {};
 }
 
+function normalizeGuestName(value) {
+    return String(value || "")
+        .trim()
+        .replace(/\.+$/, "")
+        .trim();
+}
+
 function mapInvitadosToDirectory(invitados) {
     const directory = {};
 
@@ -48,7 +55,7 @@ function mapInvitadosToDirectory(invitados) {
         if (!id || !activo) return;
 
         directory[id] = {
-            nombre: String(invitado.nombre || "").trim() || "Invitado",
+            nombre: normalizeGuestName(invitado.nombre) || "Invitado",
             pases: Math.max(0, Number(invitado.pases) || 0)
         };
     });
@@ -72,7 +79,7 @@ function normalizeConfirmation(record) {
     const response = normalizeResponse(record && record.respuesta);
     return {
         id: normalizeGuestId(record && (record.id || record._key)),
-        nombre: String(record && record.nombre || ""),
+        nombre: normalizeGuestName(record && record.nombre),
         pasesAsignados: Math.max(0, Number(record && record.pasesAsignados) || 0),
         respuesta: response,
         cantidadConfirmada: response === "si"
@@ -100,7 +107,7 @@ function buildRows(confirmations, guestDirectory) {
         if (!confirmation) {
             rows.push({
                 id,
-                nombre: String(guest.nombre || ""),
+                nombre: normalizeGuestName(guest.nombre),
                 pasesAsignados: Math.max(0, Number(guest.pases) || 0),
                 respuesta: "pendiente",
                 cantidadConfirmada: 0,
@@ -111,7 +118,7 @@ function buildRows(confirmations, guestDirectory) {
 
         rows.push({
             ...confirmation,
-            nombre: confirmation.nombre || String(guest.nombre || ""),
+            nombre: confirmation.nombre || normalizeGuestName(guest.nombre),
             pasesAsignados: confirmation.pasesAsignados || Math.max(0, Number(guest.pases) || 0)
         });
     });

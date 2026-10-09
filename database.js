@@ -427,6 +427,10 @@ function sanitizeText(value) {
   return String(value == null ? "" : value).trim();
 }
 
+function sanitizeGuestName(value) {
+  return sanitizeText(value).replace(/\.+$/, "").trim();
+}
+
 function sanitizeTextForFingerprint(value) {
   return sanitizeText(value).replace(/\s+/g, " ").toLowerCase();
 }
@@ -843,7 +847,7 @@ async function createInvitado(arg1, arg2) {
   const payload = parsed.payload || {};
 
   const id = String(payload.id || ("guest_" + Date.now())).trim() || ("guest_" + Date.now());
-  const nombre = sanitizeText(payload.nombre);
+  const nombre = sanitizeGuestName(payload.nombre);
   const pases = Math.max(1, Number(payload.pases) || 1);
   const activo = typeof payload.activo === "undefined" ? true : Boolean(payload.activo);
 
@@ -872,7 +876,7 @@ async function updateInvitado(arg1, arg2, arg3) {
     throw new Error("INVITADO_ID_REQUERIDO");
   }
 
-  const nombre = sanitizeText(payload.nombre);
+  const nombre = sanitizeGuestName(payload.nombre);
   const pases = Math.max(1, Number(payload.pases) || 1);
   const activo = typeof payload.activo === "undefined" ? true : Boolean(payload.activo);
 
@@ -911,7 +915,7 @@ async function deleteInvitado(arg1, arg2) {
   const current = snapshot.val() || {};
   const updatedRecord = {
     id: String(current.id || guestId),
-    nombre: sanitizeText(current.nombre) || "Invitado",
+    nombre: sanitizeGuestName(current.nombre) || "Invitado",
     pases: Math.max(1, Number(current.pases) || 1),
     activo: false
   };
@@ -979,7 +983,7 @@ async function migrateLocalGuestsToFirebase(arg1, arg2, arg3) {
         const guestId = sanitizeFirebaseKey(guest.id);
         return set(ref(db, getEventInvitadosPath(eventId) + "/" + guestId), {
           id: String(guest.id),
-          nombre: String(guest.nombre || "").trim(),
+          nombre: sanitizeGuestName(guest.nombre),
           pases: Math.max(1, Number(guest.pases) || 1),
           activo: typeof guest.activo === "undefined" ? true : Boolean(guest.activo)
         });
